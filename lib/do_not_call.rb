@@ -4,7 +4,8 @@ require 'open-uri'
 
 module DoNotCallApi
   module Client
-    def add_to_do_not_call_list(phone)
+    EMAIL = 'foobar' unless defined?(EMAIL)
+    def self.add_to_do_not_call_list(phone)
       email = "dnkcityusa+#{rand(1...99999)}@gmail.com" #set email address using random number after the +
       agent = Mechanize.new
       agent.get("https://donotcall.gov/register/reg.aspx")
