@@ -28,6 +28,17 @@ GEM
     arel (4.0.0.beta2)
     atomic (1.0.1)
     builder (3.1.4)
+    capistrano (2.14.2)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    capistrano-exts (1.10.1)
+      activesupport (>= 3.1.0)
+      capistrano (>= 2.8.0)
+      i18n (>= 0.6.0)
+    capistrano_colors (0.5.5)
     coffee-rails (4.0.0.beta1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -40,6 +51,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.4)
     jbuilder (1.0.2)
@@ -48,6 +60,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    kgio (2.8.0)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -65,8 +78,16 @@ GEM
     multi_json (1.7.2)
     net-http-digest_auth (1.2.1)
     net-http-persistent (2.8)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.6)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     nokogiri (1.5.9)
     ntlm-http (0.1.1)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -85,6 +106,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.17.0, < 2.0)
+    raindrops (0.10.0)
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -103,7 +125,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.7)
     thor (0.17.0)
     thread_safe (0.1.0)
       atomic
@@ -120,19 +141,27 @@ GEM
     unf (0.1.1)
       unf_ext
     unf_ext (0.0.6)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     webrobots (0.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
+  capistrano-exts (>= 1.8.1)
+  capistrano_colors
   coffee-rails (~> 4.0.0.beta1)
   jbuilder (~> 1.0.1)
   jquery-rails
   mechanize
   nokogiri
+  pg
   rails (= 4.0.0.beta1)
   sass-rails (~> 4.0.0.beta1)
-  sqlite3
   turbolinks
   uglifier (>= 1.0.3)
+  unicorn

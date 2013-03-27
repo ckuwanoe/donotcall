@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
-gem 'sqlite3'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,7 +18,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+# Use unicorn as the app server
+gem 'unicorn'
 
+# Deploy with Capistrano
+gem 'capistrano'
+gem 'capistrano-exts', '>=1.8.1', :require => false
+gem 'capistrano_colors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'nokogiri'
