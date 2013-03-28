@@ -10,7 +10,7 @@ class PhoneNumber < ActiveRecord::Base
     f = File.new('tmp/import.log', "a")
     header.nil? ? start = 0 : start = 1
     CSV.parse(File.open(file))[start..-1].each do |row|
-      self.do_not_call(row[col-1].to_s) if row[col-1].size >= 9
+      self.do_not_call(row[col.to_i-1].to_s) if row[col.to_i-1].size >= 9
     end
   end
 end

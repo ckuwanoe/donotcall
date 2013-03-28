@@ -1,6 +1,4 @@
 class PhoneNumbersController < ApplicationController
-
-  before_action :set_phone_number, only: [:show, :edit, :update, :destroy]
   # GET /phone_numbers
   # GET /phone_numbers.json
   def index
@@ -36,7 +34,17 @@ class PhoneNumbersController < ApplicationController
 #    end
     file_store = DocumentUploader.new
     file_store.store!(params[:file])
-    @success = PhoneNumber.import_csv(file_store.current_path, params[:header], params[:column_number])
+    success = PhoneNumber.import_csv(file_store.current_path, params[:header], params[:column_number])
+
+    respond_to do |format|
+      if sucess
+        format.html { redirect_to phone_numbers_path, notice: 'Phone number was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @phone_number.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /phone_numbers/1
@@ -62,15 +70,4 @@ class PhoneNumbersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_phone_number
-      @phone_number = PhoneNumber.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def phone_number_params
-      params[:phone_number]
-    end
 end
