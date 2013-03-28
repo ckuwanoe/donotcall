@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require "delayed/recipes"
 
 load "config/recipes/base"
 load "config/recipes/nginx"
@@ -10,7 +9,7 @@ load "config/recipes/rbenv"
 #load "config/recipes/delayed_job"
 #load "config/recipes/clock"
 load "config/recipes/check"
-load "config/recipes/links"
+#load "config/recipes/links"
 
 server "mv2.ethicalelectric.com", :web, :app, :db, primary: true
 

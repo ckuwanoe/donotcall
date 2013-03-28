@@ -22,7 +22,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '2.13.5'
 gem 'capistrano-exts', '>=1.8.1', :require => false
 gem 'capistrano_colors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
