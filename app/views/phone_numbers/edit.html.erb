@@ -1,6 +1,5 @@
-<h1>Editing phone_number</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @phone_number %> |
-<%= link_to 'Back', phone_numbers_path %>
+<%- model_class = PhoneNumber -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
