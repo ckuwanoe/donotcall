@@ -24,17 +24,17 @@ class PhoneNumbersController < ApplicationController
   # POST /phone_numbers
   # POST /phone_numbers.json
   def create
-    @phone_number = PhoneNumber.new(phone_number_params)
-
-    respond_to do |format|
-      if @phone_number.save
-        format.html { redirect_to @phone_number, notice: 'Phone number was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @phone_number }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @phone_number.errors, status: :unprocessable_entity }
-      end
-    end
+#    @phone_number = PhoneNumber.new(phone_number_params)
+#    respond_to do |format|
+#      if @phone_number.save
+#        format.html { redirect_to @phone_number, notice: 'Phone number was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @phone_number }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @phone_number.errors, status: :unprocessable_entity }
+#      end
+#    end
+    @success = PhoneNumber.import_csv(params[:file], params[:header], params[:column_number])
   end
 
   # PATCH/PUT /phone_numbers/1

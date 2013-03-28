@@ -26,10 +26,12 @@ gem 'unicorn'
 gem 'capistrano', '2.13.5'
 gem 'capistrano-exts', '>=1.8.1', :require => false
 gem 'capistrano_colors'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'nokogiri'
 gem 'mechanize'
+gem 'carrierwave'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'

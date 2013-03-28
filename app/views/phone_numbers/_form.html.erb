@@ -1,5 +1,23 @@
+<p>Please upload a csv.</p>
 <%= form_for @phone_number, :html => { :class => 'form-horizontal' } do |f| %>
-
+  <div class="control-group">
+    <%= f.label "Does the csv contain a header row?", { :class => "control-label" } %>
+    <div class="controls">
+      <%= check_box_tag :header %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Phone number column number", { :class => "control-label" } %>
+    <div class="controls">
+      <%= select_tag :column_number, options_for_select(1..25) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "File", { :class => "control-label" } %>
+    <div class="controls">
+      <%= file_field_tag :file %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
