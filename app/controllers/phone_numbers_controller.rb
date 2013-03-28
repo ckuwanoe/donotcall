@@ -34,7 +34,9 @@ class PhoneNumbersController < ApplicationController
 #        format.json { render json: @phone_number.errors, status: :unprocessable_entity }
 #      end
 #    end
-    @success = PhoneNumber.import_csv(params[:file], params[:header], params[:column_number])
+    file_store = DocumentUploader.new
+    file_store.store!(params[:file])
+    @success = PhoneNumber.import_csv(file_store.current_path, params[:header], params[:column_number])
   end
 
   # PATCH/PUT /phone_numbers/1
