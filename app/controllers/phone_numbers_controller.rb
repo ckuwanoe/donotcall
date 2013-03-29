@@ -37,7 +37,7 @@ class PhoneNumbersController < ApplicationController
     success = PhoneNumber.import_csv(file_store.current_path, params[:header], params[:column_number])
 
     respond_to do |format|
-      if sucess
+      if success
         format.html { redirect_to phone_numbers_path, notice: 'Phone number was successfully updated.' }
         format.json { head :no_content }
       else
