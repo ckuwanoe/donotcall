@@ -20,8 +20,9 @@ Mailman::Application.run do
     link = doc.search('a').first['href']
     agent = Mechanize.new
     agent.get(link)
-
-    puts "clicked link #{link}\n"
+    f = File.new("#{Rails.root.to_s}/log/mailman.log", "a")
+    f.write "#{Time.zone.now} - clicked link #{link}\n"
+    f.close
   end
 end
 
