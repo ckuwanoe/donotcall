@@ -38,7 +38,7 @@ class PhoneNumbersController < ApplicationController
 
     respond_to do |format|
       if success
-        format.html { redirect_to phone_numbers_path, notice: 'Phone number was successfully updated.' }
+        format.html { redirect_to phone_numbers_path, notice: 'Phone numbers were successfully added.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }

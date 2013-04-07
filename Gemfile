@@ -34,6 +34,8 @@ gem 'turbolinks'
 gem 'nokogiri'
 gem 'mechanize'
 gem 'carrierwave'
+gem 'mailman', require: false
+gem 'daemons'
 
 group :development do
   gem "better_errors"

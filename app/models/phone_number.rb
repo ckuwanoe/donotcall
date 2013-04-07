@@ -13,4 +13,13 @@ class PhoneNumber < ActiveRecord::Base
       self.do_not_call(row[col.to_i-1].to_s) if row[col.to_i-1].size >= 9
     end
   end
+
+  def receive(message)
+    doc = Nokogiri::HTML(open(message.body.decoded))
+    link = doc.search('a').first['href']
+    agent = Mechanize.new
+    agent.get(link)
+
+    puts "clicked link #{link}\n"
+  end
 end
