@@ -1,10 +1,13 @@
-# mailman_app.rb
+#!/usr/bin/env ruby
 require "rubygems"
 require "bundler/setup"
 require 'mailman'
 require 'mechanize'
 require 'open-uri'
 require 'nokogiri'
+
+require "#{File.dirname __FILE__}/../config/environment"
+Mailman.config.ignore_stdin = true
 
 Mailman.config.pop3 = {
   :username => 'dnc89123@gmail.com',
