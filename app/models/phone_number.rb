@@ -4,6 +4,7 @@ class PhoneNumber < ActiveRecord::Base
 
   def self.do_not_call(phone)
     DoNotCallApi::Client.add_to_do_not_call_list(phone)
+    Rails.logger.info "Added phone number #{phone} to do not call list. \n"
   end
 
   def self.import_csv(file, header=nil, col)

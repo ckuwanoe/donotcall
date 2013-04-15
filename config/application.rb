@@ -58,5 +58,11 @@ module Donotcall
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    if Rails.env.production?
+      DelayedJobWeb.use Rack::Auth::Basic do |username, password|
+        username == 'admin' && password == '27xdSEifmDLYwD'
+      end
+    end
   end
 end
