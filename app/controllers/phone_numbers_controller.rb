@@ -34,11 +34,11 @@ class PhoneNumbersController < ApplicationController
 #    end
     file_store = DocumentUploader.new
     file_store.store!(params[:file])
-    success = PhoneNumber.import_csv(file_store.current_path, params[:header], params[:column_number])
+    success = PhoneNumber.delay.import_csv(file_store.current_path, params[:header], params[:column_number])
 
     respond_to do |format|
       if success
-        format.html { redirect_to phone_numbers_path, notice: 'Phone numbers were successfully added.' }
+        format.html { redirect_to new_phone_number_path, notice: 'Phone numbers were successfully added. Background process running.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }

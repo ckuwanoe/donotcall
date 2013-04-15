@@ -1,4 +1,5 @@
 Donotcall::Application.routes.draw do
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
   resources :phone_numbers
 
   # The priority is based upon order of creation: first created -> highest priority.
