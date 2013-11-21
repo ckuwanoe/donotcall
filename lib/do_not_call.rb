@@ -12,9 +12,9 @@ module DoNotCallApi
 
       #find the first form and set the variables, then submit
       form = agent.page.forms[0]
-      form["PhoneNumberTextBox1"] = phone
-      form["EmailAddressTextBox"] = email
-      form["ConfirmEmailAddressTextBox"] = email
+      form["ctl00$ContentPlaceHolder1$PhoneNumberTextBox1"] = phone
+      form["ctl00$ContentPlaceHolder1$EmailAddressTextBox"] = email
+      form["ctl00$ContentPlaceHolder1$ConfirmEmailAddressTextBox"] = email
       form.click_button
 
       # click the confirm button on confirmation screen

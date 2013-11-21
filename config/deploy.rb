@@ -12,7 +12,7 @@ load "config/recipes/delayed_job"
 load "config/recipes/check"
 #load "config/recipes/links"
 
-server "mv2.ethicalelectric.com", :web, :app, :db, primary: true
+server "dnc.plawt.us", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "donotcall"
