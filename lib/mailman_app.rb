@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
 require "rubygems"
-require "bundler/setup"
+require 'bundler/setup'
 require 'mailman'
 require 'mechanize'
 require 'open-uri'
 require 'nokogiri'
+ENV["RAILS_ENV"] ||= "development"
 
-require "#{File.dirname __FILE__}/../config/environment"
+root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+require File.join(root, "config", "environment")
+#require "#{File.dirname __FILE__}/../config/environment"
 Mailman.config.ignore_stdin = true
 
 Mailman.config.pop3 = {
